@@ -2,15 +2,17 @@ import Scraper from './components/scraper';
 
 console.log('choo choo');
 
-const scraper = new Scraper('https://inside.bahn.de/ice-4/');
+//const scraperDB = new Scraper('https://inside.bahn.de/ice-4/', '.entry-content h2 + p + ul > li', /\D/g);
+const scrapeFernBahn = new Scraper('http://www.grahnert.de/fernbahn/ice4.html', 'table tr:not(:first-child) td:first-child', /\D/g);
 
-const htmlFull = scraper.fetchHTML();
+// const htmlDB = scraperDB.fetchHTML();
+const htmlFernbahn = scrapeFernBahn.fetchHTML();
 
-htmlFull
+const trainNumbers = htmlFernbahn
   .then((htmlString) => {
-    const trainNumbers = scraper.getParsedValues(htmlString);
+    const parsedNumbers = scrapeFernBahn.getParsedValues(htmlString);
 
-    console.log(trainNumbers);
+    console.log(parsedNumbers);
   })
   .catch((error) => {
     console.log(error);
