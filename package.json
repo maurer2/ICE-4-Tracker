@@ -19,6 +19,8 @@
     "eslint-plugin-import": "^2.14.0",
     "esm": "^3.0.84",
     "express": "^4.16.3",
+    "htmlparser2": "^3.10.0",
+    "jsdom": "^13.0.0",
     "ndb": "1.0.26",
     "util": "^0.11.1",
     "webpack": "^4.19.1"
