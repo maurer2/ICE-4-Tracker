@@ -59,3 +59,11 @@ typings/
 
 # next.js build output
 .next
+
+yarn-error.log
+
+.idea
+.idea/*
+
+.vscode
+.vscode/*
