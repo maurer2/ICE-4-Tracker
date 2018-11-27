@@ -1,5 +1,4 @@
 import http from 'http';
-// import https from 'https';
 import { JSDOM } from 'jsdom';
 
 export default class Scraper {
@@ -27,13 +26,18 @@ export default class Scraper {
     });
   }
 
-  getParsedValues(htmlString) {
+  parseHTML(htmlString) {
     const dom = new JSDOM(htmlString);
     const listEntries = Array.from(dom.window.document.querySelectorAll(this.selector));
-    const extractedValues = listEntries
+
+    return listEntries
       .map(entry => entry.textContent.replace(this.regex, ''))
       .filter(entry => entry !== '');
+  }
 
-    return extractedValues;
+  scrapeData() {
+    return this.fetchHTML()
+      .then(markupString => this.parseHTML(markupString))
+      .catch(() => []);
   }
 }
