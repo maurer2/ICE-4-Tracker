@@ -9,6 +9,15 @@
 }
 
 .App-header {
+  margin-bottom: 1rem;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-main {
+
+}
+
+.form {
+  width: 360px;
 }

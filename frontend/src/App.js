@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchField from './Search/SearchField';
+import SearchField from './SearchField/SearchField';
 
 class App extends Component {
   render() {
@@ -9,8 +9,8 @@ class App extends Component {
         <header className="App-header">
           ICE-4 Suche
         </header>
-        <main>
-          <form action="" onSubmit={ e => e.preventDefault() }>
+        <main className="App-main">
+          <form action="" className="form" method="post" autoComplete="off" noValidate onSubmit={ e => e.preventDefault() }>
             <SearchField />
           </form>
         </main>
