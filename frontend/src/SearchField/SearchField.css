@@ -13,15 +13,3 @@
 	width: 100%;
 }
 
-.suggestions {
-	display: none;
-	margin: 0;
-	padding: 0;
-	background: #fff;
-	list-style: none;
-	text-align: left;
-}
-
-.suggestions--are-visible {
-	display: block;
-}
