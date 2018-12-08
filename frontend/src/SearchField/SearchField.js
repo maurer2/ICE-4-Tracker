@@ -7,9 +7,12 @@ class SearchField extends Component {
 
     this.state = {
       value: '',
+      hasFocus: false,
     };
 
     this.handleChangeEvent = this.handleChangeEvent.bind(this);
+    this.handleFocusEvent = this.handleFocusEvent.bind(this);
+    this.handleBlurEvent = this.handleBlurEvent.bind(this);
   }
 
   handleChangeEvent(event) {
@@ -18,11 +21,28 @@ class SearchField extends Component {
     });
   }
 
+  handleFocusEvent(event) {
+    this.setState({
+      hasFocus: true,
+    }, () => {
+      this.props.cbFieldFocus(this.state.hasFocus);
+    })
+  }
+
+  handleBlurEvent(event) {
+    this.setState({
+      hasFocus: false,
+    }, () => {
+      this.props.cbFieldFocus(this.state.hasFocus);
+    })
+  }
+
   render() {
     return (
       <div className="form-row">
         <input type="search" className="input search" name="search" placeholder="Zugnummer eingeben" autoComplete="off"
-          value={ this.state.value } onChange={ this.handleChangeEvent } />
+          value={ this.state.value } onChange={ this.handleChangeEvent } onFocus= { this.handleFocusEvent }
+          onBlur= { this.handleBlurEvent } />
       </div>
     )
   }

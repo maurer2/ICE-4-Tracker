@@ -10,3 +10,7 @@
 .suggestions--are-visible {
 	display: block;
 }
+
+.suggestion {
+  padding: 0 0.5rem;
+}

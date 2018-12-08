@@ -23,7 +23,7 @@ class SuggestionList extends Component {
 
   render() {
     return (
-      <ul className={`suggestions ${(this.props.showSuggestions !== '') ? 'suggestions--are-visible' : '' }`}>
+      <ul className={`suggestions ${(this.props.showSugestions) ? 'suggestions--are-visible' : '' }`}>
         { this.props.trainNumbers.map((trainNumber, index) =>
           <li className="suggestion" key={ index }>{ trainNumber }</li>) }
       </ul>
