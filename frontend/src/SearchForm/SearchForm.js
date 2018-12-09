@@ -9,7 +9,7 @@ class SearchForm extends Component {
     super(props);
 
     this.state = {
-      trainNumbers: ['500', '600', '700', '800', '900'],
+      trainNumbers: [],
       showSugestions: false,
       isFetchingData: false,
     };
@@ -20,7 +20,7 @@ class SearchForm extends Component {
 
   handleSearchFieldFocusEvent(searchFieldHasFocus) {
     this.setState({
-      showSugestions: searchFieldHasFocus,
+      showSugestions: searchFieldHasFocus && this.state.trainNumbers.length > 0,
     })
   }
 
@@ -30,6 +30,25 @@ class SearchForm extends Component {
     if (!allowedKeys.includes(key)) {
       return;
     }
+  }
+
+  fetchData(){
+    return new Promise((resolve, reject) => {
+      window.setTimeout(() => {
+        const trainNumbers = ['500', '600', '700', '800', '900'];
+
+        resolve(trainNumbers)
+      }, 2500);
+    })
+  }
+
+  componentDidMount() {
+    this.fetchData()
+      .then((data) => {
+        this.setState({
+          trainNumbers: data
+        })
+      });
   }
 
   render() {
