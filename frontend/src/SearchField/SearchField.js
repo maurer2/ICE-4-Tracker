@@ -13,6 +13,7 @@ class SearchField extends Component {
     this.handleChangeEvent = this.handleChangeEvent.bind(this);
     this.handleFocusEvent = this.handleFocusEvent.bind(this);
     this.handleBlurEvent = this.handleBlurEvent.bind(this);
+    this.handleKeyUpEvent = this.handleKeyUpEvent.bind(this);
   }
 
   handleChangeEvent(event) {
@@ -37,12 +38,22 @@ class SearchField extends Component {
     })
   }
 
+  handleKeyUpEvent(event) {
+    const key = event.key;
+
+    if (key === undefined) {
+      return;
+    }
+
+    this.props.cbKeyboardEvent(key);
+  }
+
   render() {
     return (
       <div className="form-row">
         <input type="search" className="input search" name="search" placeholder="Zugnummer eingeben" autoComplete="off"
           value={ this.state.value } onChange={ this.handleChangeEvent } onFocus= { this.handleFocusEvent }
-          onBlur= { this.handleBlurEvent } />
+          onBlur= { this.handleBlurEvent } onKeyUp={ this.handleKeyUpEvent } />
       </div>
     )
   }
