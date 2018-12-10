@@ -4,7 +4,8 @@
 	padding: 0;
 	background: #fff;
 	list-style: none;
-	text-align: left;
+  text-align: left;
+  flex-grow: 1;
 }
 
 .suggestions--are-visible {
@@ -15,6 +16,12 @@
   padding: 0 0.5rem;
 }
 
+.suggestion--is-active {
+  background: red;
+}
+
 .button {
   border: 0;
+  background: none;
+  text-align: left;
 }

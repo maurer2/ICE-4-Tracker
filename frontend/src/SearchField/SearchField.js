@@ -50,11 +50,9 @@ class SearchField extends Component {
 
   render() {
     return (
-      <div className="form-row">
-        <input type="search" className="input search" name="search" placeholder="Zugnummer eingeben" autoComplete="off"
-          value={ this.state.value } onChange={ this.handleChangeEvent } onFocus= { this.handleFocusEvent }
-          onBlur= { this.handleBlurEvent } onKeyUp={ this.handleKeyUpEvent } />
-      </div>
+      <input className="input search" type="search" name="search" placeholder="Zugnummer eingeben" autoComplete="off"
+        value={ this.state.value } onChange={ this.handleChangeEvent } onFocus= { this.handleFocusEvent }
+        onBlur= { this.handleBlurEvent } onKeyUp={ this.handleKeyUpEvent } />
     )
   }
 }

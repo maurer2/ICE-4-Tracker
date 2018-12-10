@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './SearchForm.css';
+import { ReactComponent as Loader } from './loader.svg';
 
 import SearchField from '../SearchField/SearchField';
 import SuggestionList from '../SuggestionList/SuggestionList';
@@ -10,8 +11,9 @@ class SearchForm extends Component {
 
     this.state = {
       trainNumbers: [],
+      selectedTrainNumber: '',
       showSugestions: false,
-      isFetchingData: false,
+      showLoader: false,
     };
 
     this.handleSearchFieldFocusEvent = this.handleSearchFieldFocusEvent.bind(this);
@@ -20,7 +22,7 @@ class SearchForm extends Component {
 
   handleSearchFieldFocusEvent(searchFieldHasFocus) {
     this.setState({
-      showSugestions: searchFieldHasFocus && this.state.trainNumbers.length > 0,
+      // showSugestions: searchFieldHasFocus,
     })
   }
 
@@ -34,8 +36,16 @@ class SearchForm extends Component {
 
   fetchData(){
     return new Promise((resolve, reject) => {
+      this.setState({
+        showLoader: true,
+      })
+
       window.setTimeout(() => {
         const trainNumbers = ['500', '600', '700', '800', '900'];
+
+        this.setState({
+          showLoader: false,
+        })
 
         resolve(trainNumbers)
       }, 2500);
@@ -46,7 +56,8 @@ class SearchForm extends Component {
     this.fetchData()
       .then((data) => {
         this.setState({
-          trainNumbers: data
+          trainNumbers: data,
+          showSugestions: true,
         })
       });
   }
@@ -55,8 +66,15 @@ class SearchForm extends Component {
     return (
       <form action="/" className="form" method="post" autoComplete="off" noValidate="novalidate"
         onSubmit={ (e) => e.preventDefault() }>
-        <SearchField cbFieldFocus={ this.handleSearchFieldFocusEvent } cbKeyboardEvent={ this.handleKeyboardEvents } />
-        <SuggestionList trainNumbers={ this.state.trainNumbers } showSugestions={ this.state.showSugestions } />
+        <div className="form-row">
+          { this.state.showLoader && <Loader className="loader"></Loader> }
+          <SearchField cbFieldFocus={ this.handleSearchFieldFocusEvent }
+            cbKeyboardEvent={ this.handleKeyboardEvents } />
+        </div>
+        <div className="form-row">
+          <SuggestionList trainNumbers={ this.state.trainNumbers }
+            selectedTrainNumber={this.state.selectedTrainNumber} showSugestions={ this.state.showSugestions } />
+        </div>
       </form>
     )
   }
