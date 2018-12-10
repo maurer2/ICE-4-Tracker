@@ -27,10 +27,51 @@ class SearchForm extends Component {
   }
 
   handleKeyboardEvents(key) {
-    const allowedKeys = ['ArrowUp', 'ArrowDown'];
+    const allowedKeys = ['ArrowUp', 'ArrowDown', 'Enter'];
 
     if (!allowedKeys.includes(key)) {
       return;
+    }
+
+    if (key === 'Enter') {
+      this.activevateSelectedTrainNumber();
+      return;
+    }
+
+    this.updateSelectedTrainNumber(key === 'ArrowDown');
+  }
+
+  activevateSelectedTrainNumber() {}
+
+  updateSelectedTrainNumber(goDown) {
+    if (this.state.trainNumbers.length === 0) {
+      return;
+    }
+
+    const selectedTrainNumber = this.state.selectedTrainNumber;
+    const firstTrainNumber = this.state.trainNumbers[0];
+    const lastTrainNumber = this.state.trainNumbers[this.state.trainNumbers.length - 1];
+
+    if (goDown) {
+      if (selectedTrainNumber === lastTrainNumber) {
+        return;
+      }
+
+      const nextIndex = this.state.trainNumbers.indexOf(selectedTrainNumber) + 1;
+
+      this.setState({
+        selectedTrainNumber: this.state.trainNumbers[nextIndex]
+      })
+    } else {
+      if (selectedTrainNumber === firstTrainNumber) {
+        return;
+      }
+
+      const prevIndex = this.state.trainNumbers.indexOf(selectedTrainNumber) - 1;
+
+      this.setState({
+        selectedTrainNumber: this.state.trainNumbers[prevIndex]
+      })
     }
   }
 
