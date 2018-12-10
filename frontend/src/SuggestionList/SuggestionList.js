@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import './SuggestionList.css';
 
 class SuggestionList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      test: [],
-    };
-  }
-
   render() {
     return (
       <ul className={ `suggestions ${ (this.props.showSugestions) ? 'suggestions--are-visible' : '' }` }>

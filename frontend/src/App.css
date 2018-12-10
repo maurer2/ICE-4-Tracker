@@ -8,12 +8,20 @@
   justify-content: center;
 }
 
-.App-header {
-  margin-bottom: 1rem;
+.header {
   font-size: calc(10px + 2vmin);
+}
+
+.title {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
   color: white;
 }
 
-.App-main {
-
+.subtitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.15rem;
+  color: white;
+  text-align: left;
+  font-weight: normal;
 }

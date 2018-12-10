@@ -34,14 +34,16 @@ class SearchForm extends Component {
     }
 
     if (key === 'Enter') {
-      this.activevateSelectedTrainNumber();
+      this.activateSelectedTrainNumber();
       return;
     }
 
     this.updateSelectedTrainNumber(key === 'ArrowDown');
   }
 
-  activevateSelectedTrainNumber() {}
+  activateSelectedTrainNumber() {
+    console.log(this.state.selectedTrainNumber);
+  }
 
   updateSelectedTrainNumber(goDown) {
     if (this.state.trainNumbers.length === 0) {
@@ -107,6 +109,9 @@ class SearchForm extends Component {
     return (
       <form action="/" className="form" method="post" autoComplete="off" noValidate="novalidate"
         onSubmit={ (e) => e.preventDefault() }>
+        <h2 className="subtitle">
+          Nummern&shy;suche
+        </h2>
         <div className="form-row">
           { this.state.showLoader && <Loader className="loader"></Loader> }
           <SearchField cbFieldFocus={ this.handleSearchFieldFocusEvent }
