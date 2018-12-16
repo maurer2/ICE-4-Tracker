@@ -33,6 +33,9 @@ class SearchForm extends Component {
     }
 
     if (key === 'Enter') {
+      const newTrain = this.state.newTrainNumber;
+
+      this.props.cbTrainChangeEvent(newTrain);
       return;
     }
 

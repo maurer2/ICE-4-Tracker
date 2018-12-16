@@ -11,12 +11,13 @@ class App extends Component {
       trainNumbers: [],
       activeTrain: '',
       isLoading: false,
+      selectedTrainNumber: '',
     };
 
-    // this.handleInputEvent = this.handleInputEvent.bind(this);
+    this.handleTrainChangeEvent = this.handleTrainChangeEvent.bind(this);
   }
 
-  // dumy
+  // dummy
   fetchData(){
     return new Promise((resolve) => {
       this.setState({
@@ -50,13 +51,14 @@ class App extends Component {
       });
   }
 
-  /*
-  handleInputEvent(inputValue) {
+
+  handleTrainChangeEvent(newTrainNumber) {
+    console.log(newTrainNumber);
+
     this.setState({
-      // selectedTrainNumber: inputValue,
+      selectedTrainNumber: newTrainNumber,
     });
   }
-  */
 
   render() {
     return (
@@ -68,9 +70,9 @@ class App extends Component {
         </header>
         <main className="main">
           <SearchForm trainNumbers={ this.state.trainNumbers } showLoader={ this.state.isLoading } activeTrain={ this.state.activeTrain }
-            /* cbInputEvent={ this.handleInputEvent() } */ />
-          { !this.state.isLoading && this.state.activeTrain !== '' ?
-            <TrainDetails activeTrain={ this.state.activeTrain } /> : ''
+            cbTrainChangeEvent={ this.handleTrainChangeEvent } />
+          { !this.state.isLoading && this.state.selectedTrainNumber !== '' ?
+            <TrainDetails selectedTrainNumber={ this.state.selectedTrainNumber } /> : ''
           }
         </main>
       </div>

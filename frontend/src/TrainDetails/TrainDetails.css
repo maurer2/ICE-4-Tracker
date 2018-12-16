@@ -1,6 +1,23 @@
 .information {
+  display: flex;
   margin: 0;
+  padding: 0.5rem;
+  flex-wrap: wrap;
+  text-align: left;
   background: #fff;
   color: black;
-  text-align: left;
+}
+
+.number,
+.origin,
+.destination {
+  margin-left: 0;
+}
+
+.value {
+  margin-left: 0.25rem;
+}
+
+.breaker {
+  width: 100%;
 }
