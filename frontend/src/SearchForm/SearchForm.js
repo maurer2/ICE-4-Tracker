@@ -10,10 +10,9 @@ class SearchForm extends Component {
     super(props);
 
     this.state = {
-      trainNumbers: [],
-      selectedTrainNumber: '',
-      showSugestions: false,
-      showLoader: false,
+      showSuggestions: false,
+      inputValue: this.props.activeTrain,
+      newTrainNumber: '',
     };
 
     this.handleSearchFieldFocusEvent = this.handleSearchFieldFocusEvent.bind(this);
@@ -22,7 +21,7 @@ class SearchForm extends Component {
 
   handleSearchFieldFocusEvent(searchFieldHasFocus) {
     this.setState({
-      // showSugestions: searchFieldHasFocus,
+      showSuggestions: searchFieldHasFocus,
     })
   }
 
@@ -34,75 +33,42 @@ class SearchForm extends Component {
     }
 
     if (key === 'Enter') {
-      this.activateSelectedTrainNumber();
       return;
     }
 
     this.updateSelectedTrainNumber(key === 'ArrowDown');
   }
 
-  activateSelectedTrainNumber() {
-    console.log(this.state.selectedTrainNumber);
-  }
-
   updateSelectedTrainNumber(goDown) {
-    if (this.state.trainNumbers.length === 0) {
+    if (this.props.trainNumbers.length === 0) {
       return;
     }
 
-    const selectedTrainNumber = this.state.selectedTrainNumber;
-    const firstTrainNumber = this.state.trainNumbers[0];
-    const lastTrainNumber = this.state.trainNumbers[this.state.trainNumbers.length - 1];
+    const selectedTrainNumber = this.state.newTrainNumber;
+    const firstTrainNumber = this.props.trainNumbers[0];
+    const lastTrainNumber = this.props.trainNumbers[this.props.trainNumbers.length - 1];
 
     if (goDown) {
       if (selectedTrainNumber === lastTrainNumber) {
         return;
       }
 
-      const nextIndex = this.state.trainNumbers.indexOf(selectedTrainNumber) + 1;
+      const nextIndex = this.props.trainNumbers.indexOf(selectedTrainNumber) + 1;
 
       this.setState({
-        selectedTrainNumber: this.state.trainNumbers[nextIndex]
+        newTrainNumber: this.props.trainNumbers[nextIndex]
       })
     } else {
       if (selectedTrainNumber === firstTrainNumber) {
         return;
       }
 
-      const prevIndex = this.state.trainNumbers.indexOf(selectedTrainNumber) - 1;
+      const prevIndex = this.props.trainNumbers.indexOf(selectedTrainNumber) - 1;
 
       this.setState({
-        selectedTrainNumber: this.state.trainNumbers[prevIndex]
+        newTrainNumber: this.props.trainNumbers[prevIndex]
       })
     }
-  }
-
-  fetchData(){
-    return new Promise((resolve, reject) => {
-      this.setState({
-        showLoader: true,
-      })
-
-      window.setTimeout(() => {
-        const trainNumbers = ['500', '600', '700', '800', '900'];
-
-        this.setState({
-          showLoader: false,
-        })
-
-        resolve(trainNumbers)
-      }, 2500);
-    })
-  }
-
-  componentDidMount() {
-    this.fetchData()
-      .then((data) => {
-        this.setState({
-          trainNumbers: data,
-          showSugestions: true,
-        })
-      });
   }
 
   render() {
@@ -113,13 +79,12 @@ class SearchForm extends Component {
           Nummern&shy;suche
         </h2>
         <div className="form-row">
-          { this.state.showLoader && <Loader className="loader"></Loader> }
-          <SearchField cbFieldFocus={ this.handleSearchFieldFocusEvent }
-            cbKeyboardEvent={ this.handleKeyboardEvents } />
+          { this.props.showLoader && <Loader className="loader"></Loader> }
+          <SearchField cbFieldFocus={ this.handleSearchFieldFocusEvent } cbKeyboardEvent={ this.handleKeyboardEvents } />
         </div>
         <div className="form-row">
-          <SuggestionList trainNumbers={ this.state.trainNumbers }
-            selectedTrainNumber={this.state.selectedTrainNumber} showSugestions={ this.state.showSugestions } />
+          <SuggestionList showSuggestions={ this.state.showSuggestions } trainNumbers={ this.props.trainNumbers }
+            selectedTrainNumber={ this.state.newTrainNumber } />
         </div>
       </form>
     )
