@@ -53,8 +53,6 @@ class App extends Component {
 
 
   handleTrainChangeEvent(newTrainNumber) {
-    console.log(newTrainNumber);
-
     this.setState({
       selectedTrainNumber: newTrainNumber,
     });

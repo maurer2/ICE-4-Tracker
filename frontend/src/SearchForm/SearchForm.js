@@ -17,11 +17,12 @@ class SearchForm extends Component {
 
     this.handleSearchFieldFocusEvent = this.handleSearchFieldFocusEvent.bind(this);
     this.handleKeyboardEvents = this.handleKeyboardEvents.bind(this);
+    this.handleClickEvents = this.handleClickEvents.bind(this);
   }
 
   handleSearchFieldFocusEvent(searchFieldHasFocus) {
     this.setState({
-      showSuggestions: searchFieldHasFocus,
+      showSuggestions: true,
     })
   }
 
@@ -36,10 +37,19 @@ class SearchForm extends Component {
       const newTrain = this.state.newTrainNumber;
 
       this.props.cbTrainChangeEvent(newTrain);
+
       return;
     }
 
     this.updateSelectedTrainNumber(key === 'ArrowDown');
+  }
+
+  handleClickEvents(trainNumber) {
+    this.setState({
+      newTrainNumber: trainNumber
+    }, () => {
+      this.props.cbTrainChangeEvent(trainNumber);
+    });
   }
 
   updateSelectedTrainNumber(goDown) {
@@ -87,7 +97,7 @@ class SearchForm extends Component {
         </div>
         <div className="form-row">
           <SuggestionList showSuggestions={ this.state.showSuggestions } trainNumbers={ this.props.trainNumbers }
-            selectedTrainNumber={ this.state.newTrainNumber } />
+            selectedTrainNumber={ this.state.newTrainNumber } cbHandleClickEvents={ this.handleClickEvents } />
         </div>
       </form>
     )
