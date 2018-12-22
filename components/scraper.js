@@ -2,10 +2,9 @@ import http from 'http';
 import { JSDOM } from 'jsdom';
 
 export default class Scraper {
-  constructor(url, selector, regex) {
+  constructor({ url, selectors } = {}) {
     this.url = url;
-    this.selector = selector;
-    this.regex = regex;
+    this.selectors = selectors;
   }
 
   fetchHTML() {
@@ -26,18 +25,29 @@ export default class Scraper {
     });
   }
 
-  parseHTML(htmlString) {
+  extractElementsFromHTML(htmlString) {
     const dom = new JSDOM(htmlString);
-    const listEntries = Array.from(dom.window.document.querySelectorAll(this.selector));
+    const entries = [...dom.window.document.querySelectorAll(this.selectors.entry.selectorString)];
 
-    return listEntries
-      .map(entry => entry.textContent.replace(this.regex, ''))
-      .filter(entry => entry !== '');
+    return entries;
+  }
+
+  extractDataFromElements(entries) {
+    return entries
+      .filter(entry => entry.textContent.trim() !== '')
+      .map((entry) => {
+        const trainNumber = entry.querySelector(this.selectors.trainNumber.selectorString);
+
+        return {
+          trainNumber: trainNumber.textContent.replace(this.selectors.trainNumber.regex, ''),
+        };
+      });
   }
 
   scrapeData() {
     return this.fetchHTML()
-      .then(markupString => this.parseHTML(markupString))
-      .catch(() => []);
+      .then(markupString => this.extractElementsFromHTML(markupString))
+      .catch(() => [])
+      .then(entries => this.extractDataFromElements(entries));
   }
 }
