@@ -8,8 +8,16 @@ const scrapeFernBahn = new Scraper({
       regex: '',
     },
     trainNumber: {
-      selectorString: 'table tr:not(:first-child) td:first-child',
-      regex: /\D/g,
+      selectorString: 'td:first-child',
+      regex: /\n/g,
+    },
+    origin: {
+      selectorString: 'td:nth-of-type(2)',
+      regex: /\n/g,
+    },
+    destination: {
+      selectorString: 'td:nth-of-type(4)',
+      regex: /\n/g,
     },
   },
 });

@@ -37,9 +37,13 @@ export default class Scraper {
       .filter(entry => entry.textContent.trim() !== '')
       .map((entry) => {
         const trainNumber = entry.querySelector(this.selectors.trainNumber.selectorString);
+        const origin = entry.querySelector(this.selectors.origin.selectorString);
+        const destination = entry.querySelector(this.selectors.destination.selectorString);
 
         return {
           trainNumber: trainNumber.textContent.replace(this.selectors.trainNumber.regex, ''),
+          origin: origin.textContent.replace(this.selectors.origin.regex, ''),
+          destination: destination.textContent.replace(this.selectors.destination.regex, ''),
         };
       });
   }
