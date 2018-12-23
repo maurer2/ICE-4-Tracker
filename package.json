@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "scrape-train-data": "node -r esm ./scrape-train-data.js",
-    "debug:scrape-train-data": "ndb node -r esm ./scrape-train-data.js"
+    "debug:scrape-train-data": "sudo ndb node -r esm ./scrape-train-data.js"
   },
   "dependencies": {
     "babel-eslint": "^10.0.1",
