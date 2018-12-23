@@ -3,8 +3,8 @@ import './App.css';
 import SearchForm from './SearchForm/SearchForm';
 import TrainDetails from './TrainDetails/TrainDetails';
 
-// import Scraper from '../../components/scraper';
-// import config from '../../components/scraper.conf';
+import Scraper from './Scraper/scraper';
+import config from './Scraper/scraper.conf';
 
 class App extends Component {
 
@@ -21,31 +21,30 @@ class App extends Component {
     this.handleTrainChangeEvent = this.handleTrainChangeEvent.bind(this);
   }
 
-  // dummy
   fetchData(){
-    return new Promise((resolve) => {
-      this.setState({
-        isLoading: true,
+    const scraperFernbahn = new Scraper(config);
+
+    return scraperFernbahn
+      .scrapeData()
+      .then((entries) => {
+        // extract only number for now
+        const trainNumbers = entries.map((entry) => entry.trainNumber);
+
+        return(trainNumbers);
       });
-
-      window.setTimeout(() => {
-        const trainNumbers = ['500', '600', '700', '800', '900'];
-
-        this.setState({
-          isLoading: false,
-        });
-
-        resolve(trainNumbers)
-      }, 500);
-    })
   }
 
   componentDidMount() {
+    this.setState({
+      isLoading: true,
+    });
+
     this.fetchData()
       .then((trains) => {
         this.setState({
           trainNumbers: trains,
           showSuggestions: true,
+          isLoading: false,
         })
       })
       .catch(() => {

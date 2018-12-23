@@ -1,5 +1,5 @@
 export default {
-  url: 'http://www.grahnert.de/fernbahn/ice4.html',
+  url: 'https://cors-anywhere.herokuapp.com/http://www.grahnert.de/fernbahn/ice4.html',
   selectors: {
     entry: {
       selectorString: 'table tr:not(:first-child)',
