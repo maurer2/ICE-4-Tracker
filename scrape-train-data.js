@@ -1,5 +1,5 @@
-import Scraper from './components/scraper';
-import config from './components/scraper.conf';
+import Scraper from './src/Scraper/scraper';
+import config from './src/Scraper/scraper.conf';
 
 const scraperFernbahn = new Scraper(config);
 

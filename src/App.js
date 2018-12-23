@@ -3,7 +3,11 @@ import './App.css';
 import SearchForm from './SearchForm/SearchForm';
 import TrainDetails from './TrainDetails/TrainDetails';
 
+// import Scraper from '../../components/scraper';
+// import config from '../../components/scraper.conf';
+
 class App extends Component {
+
   constructor(props) {
     super(props);
 
@@ -50,7 +54,6 @@ class App extends Component {
         })
       });
   }
-
 
   handleTrainChangeEvent(newTrainNumber) {
     this.setState({

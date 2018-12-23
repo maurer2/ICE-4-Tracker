@@ -8,7 +8,12 @@
   "private": true,
   "scripts": {
     "scrape-train-data": "node -r esm ./scrape-train-data.js",
-    "debug:scrape-train-data": "sudo ndb node -r esm ./scrape-train-data.js"
+    "debug:scrape-train-data": "sudo ndb node -r esm ./scrape-train-data.js",
+    "start": "HTTPS=true react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "node_modules/.bin/eslint ./src/**/*.js"
   },
   "dependencies": {
     "dotenv": "^6.1.0",
@@ -23,6 +28,19 @@
     "htmlparser2": "^3.10.0",
     "jsdom": "^13.0.0",
     "ndb": "1.0.26",
-    "util": "^0.11.1"
-  }
+    "util": "^0.11.1",
+    "axios": "^0.18.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "2.1.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
