@@ -13,17 +13,18 @@ const scrapeFernBahn = new Scraper({
     },
     origin: {
       selectorString: 'td:nth-of-type(2)',
-      regex: /\n/g,
+      regex: /\s\s+/g,
     },
     destination: {
       selectorString: 'td:nth-of-type(4)',
-      regex: /\n/g,
+      regex: /\s\s+/g,
     },
   },
 });
-const htmlFernbahn = scrapeFernBahn.scrapeData();
 
-htmlFernbahn
+scrapeFernBahn.scrapeData()
   .then((entries) => {
     console.log(entries);
+
+    return entries;
   });

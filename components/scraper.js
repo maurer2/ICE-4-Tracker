@@ -25,33 +25,37 @@ export default class Scraper {
     });
   }
 
-  extractElementsFromHTML(htmlString) {
+  findEntries(htmlString) {
     const dom = new JSDOM(htmlString);
     const entries = [...dom.window.document.querySelectorAll(this.selectors.entry.selectorString)];
 
     return entries;
   }
 
-  extractDataFromElements(entries) {
+  extractEntries(entries) {
     return entries
       .filter(entry => entry.textContent.trim() !== '')
-      .map((entry) => {
-        const trainNumber = entry.querySelector(this.selectors.trainNumber.selectorString);
-        const origin = entry.querySelector(this.selectors.origin.selectorString);
-        const destination = entry.querySelector(this.selectors.destination.selectorString);
+      .map(entry => ({
+        trainNumber: entry.querySelector(this.selectors.trainNumber.selectorString),
+        origin: entry.querySelector(this.selectors.origin.selectorString),
+        destination: entry.querySelector(this.selectors.destination.selectorString),
+      }));
+  }
 
-        return {
-          trainNumber: trainNumber.textContent.replace(this.selectors.trainNumber.regex, ''),
-          origin: origin.textContent.replace(this.selectors.origin.regex, ''),
-          destination: destination.textContent.replace(this.selectors.destination.regex, ''),
-        };
-      });
+  parseEntries(entries) {
+    return entries
+      .map(entry => ({
+        trainNumber: entry.trainNumber.textContent.replace(this.selectors.trainNumber.regex, ''),
+        origin: entry.origin.textContent.replace(this.selectors.origin.regex, ''),
+        destination: entry.destination.textContent.replace(this.selectors.destination.regex, ''),
+      }));
   }
 
   scrapeData() {
     return this.fetchHTML()
-      .then(markupString => this.extractElementsFromHTML(markupString))
+      .then(markupString => this.findEntries(markupString))
       .catch(() => [])
-      .then(entries => this.extractDataFromElements(entries));
+      .then(entries => this.extractEntries(entries))
+      .then(entries => this.parseEntries(entries));
   }
 }
