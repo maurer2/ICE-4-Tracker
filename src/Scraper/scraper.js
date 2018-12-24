@@ -37,7 +37,7 @@ export default class Scraper {
       .filter((entry) => {
         const innerText = entry.textContent.trim();
 
-        return innerText !== '' && innerText.match(/^\d/);
+        return innerText !== '' && innerText.match(this.selectors.entry.regex);
       })
       .map(entry => ({
         trainNumber: entry.querySelector(this.selectors.trainNumber.selectorString),

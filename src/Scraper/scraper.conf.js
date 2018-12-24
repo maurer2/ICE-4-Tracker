@@ -3,7 +3,7 @@ export default {
   selectors: {
     entry: {
       selectorString: 'table tr:not(:first-child)',
-      regex: '',
+      regex: /^\d/,
     },
     trainNumber: {
       selectorString: 'td:first-child',

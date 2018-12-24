@@ -7,7 +7,6 @@ import Scraper from './Scraper/scraper';
 import config from './Scraper/scraper.conf';
 
 class App extends Component {
-
   constructor(props) {
     super(props);
 
@@ -26,6 +25,13 @@ class App extends Component {
 
     return scraperFernbahn
       .scrapeData()
+      .then((entries) => {
+        const sortedEntries = [...entries].sort((entry1, entry2) => {
+          return entry1.trainNumber - entry2.trainNumber;
+        })
+
+        return sortedEntries
+      })
       .then((entries) => {
         // extract only number for now
         const trainNumbers = entries.map((entry) => entry.trainNumber);
@@ -69,8 +75,8 @@ class App extends Component {
           </h1>
         </header>
         <main className="main">
-          <SearchForm trainNumbers={ this.state.trainNumbers } showLoader={ this.state.isLoading } activeTrain={ this.state.activeTrain }
-            cbTrainChangeEvent={ this.handleTrainChangeEvent } />
+          <SearchForm trainNumbers={ this.state.trainNumbers } showLoader={ this.state.isLoading }
+            activeTrain={ this.state.activeTrain } cbTrainChangeEvent={ this.handleTrainChangeEvent } />
           { !this.state.isLoading && this.state.selectedTrainNumber !== '' ?
             <TrainDetails selectedTrainNumber={ this.state.selectedTrainNumber } /> : ''
           }

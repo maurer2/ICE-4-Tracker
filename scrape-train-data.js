@@ -6,6 +6,4 @@ const scraperFernbahn = new Scraper(config);
 scraperFernbahn.scrapeData()
   .then((entries) => {
     console.log(entries);
-
-    return entries;
   });
