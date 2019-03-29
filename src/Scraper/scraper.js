@@ -1,5 +1,5 @@
-import http from 'http';
 import { JSDOM } from 'jsdom';
+import fetch from 'node-fetch';
 
 export default class Scraper {
   constructor({ url, selectors } = {}) {
@@ -8,21 +8,25 @@ export default class Scraper {
   }
 
   fetchHTML() {
-    return new Promise((resolve, reject) => {
-      const markup = [];
+    return fetch(this.url, {
+      method: 'GET',
+      headers: {
+        'X-Requested-With': '',
+      },
+      mode: 'cors',
+      cache: 'default',
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
 
-      http.get(this.url, (response) => {
-        response
-          .on('data', (body) => {
-            markup.push(body.toString());
-          })
-          .on('end', () => {
-            resolve(markup.join(''));
-          });
-      }).on('error', (error) => {
-        reject(error);
+        return response;
+      })
+      .then(response => response.text())
+      .catch((error) => {
+        throw Error(error);
       });
-    });
   }
 
   findEntries(htmlString) {
@@ -56,10 +60,18 @@ export default class Scraper {
   }
 
   scrapeData() {
-    return this.fetchHTML()
-      .then(markupString => this.findEntries(markupString))
-      .catch(() => [])
-      .then(entries => this.extractEntries(entries))
-      .then(entries => this.parseEntries(entries));
+    const htmlData = this.fetchHTML()
+      .then(markupString => markupString)
+      .catch((error) => {
+        throw Error(error);
+      });
+
+    const htmlEntries = htmlData.then(markupString => this.findEntries(markupString));
+
+    const extractedEntries = htmlEntries.then(entries => this.extractEntries(entries));
+
+    const parsedEntries = extractedEntries.then(entries => this.parseEntries(entries));
+
+    return parsedEntries;
   }
 }
