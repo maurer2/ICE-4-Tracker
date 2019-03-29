@@ -1,0 +1,467 @@
+[
+  {
+    "trainNumber": "500",
+    "origin": "M�nchen Hbf",
+    "destination": "Berlin-Gesundbrunnen"
+  },
+  {
+    "trainNumber": "501",
+    "origin": "Berlin Hbf",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "502",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona/Hmb Hbf"
+  },
+  {
+    "trainNumber": "503",
+    "origin": "Berlin-Gesundbrunnen",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "504",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "505",
+    "origin": "Hamburg-Altona/Berlin Hbf",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "506",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "507",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "508",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "509",
+    "origin": "Berlin-Gesundbrunnen",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "514",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "515",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "573",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "574",
+    "origin": "Stuttgart Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "575",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "576",
+    "origin": "Stuttgart Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "581",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "582",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "593",
+    "origin": "Berlin-Gesundbrunnen",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "594",
+    "origin": "M�nchen Hbf",
+    "destination": "Berlin-Gesundbrunnen"
+  },
+  {
+    "trainNumber": "602",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "603",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "609",
+    "origin": "Hamburg-Altona",
+    "destination": "K�ln Hbf"
+  },
+  {
+    "trainNumber": "610",
+    "origin": "M�nchen Hbf",
+    "destination": "Dortmund Hbf"
+  },
+  {
+    "trainNumber": "611",
+    "origin": "Dortmund Hbf",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "612",
+    "origin": "M�nchen Hbf",
+    "destination": "Dortmund Hbf"
+  },
+  {
+    "trainNumber": "613",
+    "origin": "Dortmund Hbf",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "692",
+    "origin": "M�nchen Hbf/Stuttgart Hbf",
+    "destination": "Berlin-Gesundbrunnen"
+  },
+  {
+    "trainNumber": "693",
+    "origin": "Berlin-Gesundbrunnen",
+    "destination": "Stuttgart Hbf/M�nchen Hbf"
+  },
+  {
+    "trainNumber": "694",
+    "origin": "Stuttgart Hbf",
+    "destination": "Berlin-Gesundbrunnen"
+  },
+  {
+    "trainNumber": "695",
+    "origin": "Berlin-Gesundbrunnen",
+    "destination": "Stuttgart Hbf/M�nchen Hbf"
+  },
+  {
+    "trainNumber": "697",
+    "origin": "Hamburg-Altona",
+    "destination": "Berlin S�dkreuz"
+  },
+  {
+    "trainNumber": "786",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "787",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "788",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "881",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "882",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona/Kiel Hbf"
+  },
+  {
+    "trainNumber": "885",
+    "origin": "Kiel Hbf/Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "888",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "907",
+    "origin": "Hamburg-Altona",
+    "destination": "Berlin S�dkreuz"
+  },
+  {
+    "trainNumber": "909",
+    "origin": "Hamburg-Altona",
+    "destination": "Berlin S�dkreuz"
+  },
+  {
+    "trainNumber": "973",
+    "origin": "Kiel Hbf",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "981",
+    "origin": "Donauw�rth",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "1028",
+    "origin": "K�ln Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "1086",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "1094",
+    "origin": "Stuttgart Hbf",
+    "destination": "Kiel Hbf"
+  },
+  {
+    "trainNumber": "571",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "578",
+    "origin": "Stuttgart Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "615",
+    "origin": "Dortmund Hbf",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "672",
+    "origin": "Wiesbaden Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "681",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "771",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "772",
+    "origin": "Stuttgart Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "773",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "789",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "800",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "883",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "886",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "887",
+    "origin": "Hamburg-Altona",
+    "destination": "Wiesbaden Hbf"
+  },
+  {
+    "trainNumber": "971            ",
+    "origin": "Hamburg-Altona",
+    "destination": "StuttgartHbf"
+  },
+  {
+    "trainNumber": "972              ",
+    "origin": "StuttgartHbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "974",
+    "origin": "Stuttgart Hbf",
+    "destination": "Kiel Hbf"
+  },
+  {
+    "trainNumber": "976              ",
+    "origin": "StuttgartHbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "978              ",
+    "origin": "StuttgartHbf",
+    "destination": "Kiel Hbf"
+  },
+  {
+    "trainNumber": "1079",
+    "origin": "Hamburg-Harburg",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "1087",
+    "origin": "Hamburg-Altona",
+    "destination": "Wiesbaden Hbf"
+  },
+  {
+    "trainNumber": "572",
+    "origin": "Stuttgart Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "573",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "574",
+    "origin": "Stuttgart Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "575",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "576",
+    "origin": "Stuttgart Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "577",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "783",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "786",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "882",
+    "origin": "M�nchen Hbf",
+    "destination": "Kiel Hbf"
+  },
+  {
+    "trainNumber": "885",
+    "origin": "Kiel Hbf",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "973",
+    "origin": "Kiel Hbf",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "1086",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "1094",
+    "origin": "Stuttgart Hbf",
+    "destination": "Kiel Hbf"
+  },
+  {
+    "trainNumber": "881",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "888",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "886",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "772",
+    "origin": "Stuttgart Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "774",
+    "origin": "Stuttgart Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "786",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "883",
+    "origin": "Hamburg-Altona",
+    "destination": "M�nchen Hbf"
+  },
+  {
+    "trainNumber": "886",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "970",
+    "origin": "Stuttgart Hbf",
+    "destination": "Hamburg-Altona"
+  },
+  {
+    "trainNumber": "971",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "979",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "1073",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "1079",
+    "origin": "Hamburg-Altona",
+    "destination": "Stuttgart Hbf"
+  },
+  {
+    "trainNumber": "1086",
+    "origin": "M�nchen Hbf",
+    "destination": "Hamburg-Altona"
+  }
+]
