@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
+import Suggestion from '../Suggestion/Suggestion';
+
 import styles from './SuggestionList.module.css';
 
 class SuggestionList extends Component {
@@ -29,20 +31,13 @@ class SuggestionList extends Component {
         )}
       >
         { this.props.trainNumbers.map((trainNumber, index) =>
-          <li
-            className={ classNames(
-              styles.suggestion,
-              {
-                [styles['suggestion--is-active']]: selectedTrainNumber === trainNumber
-              },
-            )}
-            key={ index }
-            data-train-number={ trainNumber }
-            onClick={ this.handleClickEvent }
-          >
-            { trainNumber }
-          </li>)
-        }
+          <Suggestion
+            selectedTrainNumber= { selectedTrainNumber }
+            trainNumber= { trainNumber }
+            onClick= { this.handleClickEvent }
+            key= { index }
+          />
+        )}
       </ul>
     )
   }

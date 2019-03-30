@@ -1,0 +1,30 @@
+.suggestions {
+	display: none;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	list-style: none;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.suggestions--are-visible {
+	display: block;
+}
+
+.suggestion {
+  padding: 0.5rem;
+}
+
+.suggestion--is-active {
+  background: #6b6b6b;
+  color: #fff;
+}
+
+.button {
+  display: block;
+  border: 0;
+  text-align: left;
+  background: none;
+  color: inherit;
+}
