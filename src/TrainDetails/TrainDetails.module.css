@@ -8,6 +8,12 @@
   color: black;
 }
 
+.title {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  color: white;
+}
+
 .number,
 .origin,
 .destination {

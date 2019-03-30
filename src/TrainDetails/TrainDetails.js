@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
-import './TrainDetails.css';
+import styles from './TrainDetails.module.css';
 
 class TrainDetails extends Component {
   render(){
     const trainName = `ICE-${ this.props.selectedTrainNumber }`;
+
     return (
-      <div className="train-details">
-        <h2 className="subtitle">
+      <div className={ styles['train-details'] }>
+        <h2 className={ styles.subtitle }>
           Informationen zu { trainName }
         </h2>
-        <dl className="information">
-          <dt className="number">Nummer:</dt>
-          <dd className="value">{ trainName }</dd>
+        <dl className={ styles.information }>
+          <dt className={ styles.number }>Nummer:</dt>
+          <dd className={ styles.value }>{ trainName }</dd>
 
-          <span className="breaker"></span>
+          <span className={ styles.breaker }></span>
 
-          <dt className="origin">Start:</dt>
-          <dd className="value">Stadt 1</dd>
+          <dt className={ styles.origin }>Start:</dt>
+          <dd className={ styles.value }>Stadt 1</dd>
 
-          <span className="breaker"></span>
+          <span className={ styles.breaker }></span>
 
-          <dt className="destination">Ziel:</dt>
-          <dd className="value">Stadt 2</dd>
+          <dt className={ styles.destination }>Ziel:</dt>
+          <dd className={ styles.value }>Stadt 2</dd>
         </dl>
       </div>
     )

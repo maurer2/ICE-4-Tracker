@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SearchForm.css';
+import styles from './SearchForm.module.css';
 import { ReactComponent as Loader } from './loader.svg';
 
 import SearchField from '../SearchField/SearchField';
@@ -86,18 +86,31 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <form action="/" className="form" method="post" autoComplete="off" noValidate="novalidate"
-        onSubmit={ (e) => e.preventDefault() }>
-        <h2 className="subtitle">
+      <form
+        action="/"
+        className={ styles.form }
+        method="post"
+        autoComplete="off"
+        noValidate="novalidate"
+        onSubmit={ (e) => e.preventDefault() }
+      >
+        <h2 className={ styles.title }>
           Nummern&shy;suche
         </h2>
-        <div className="form-row">
+        <div className={ styles['form-row'] }>
           { this.props.showLoader && <Loader className="loader"></Loader> }
-          <SearchField cbFieldFocus={ this.handleSearchFieldFocusEvent } cbKeyboardEvent={ this.handleKeyboardEvents } />
+          <SearchField
+            cbFieldFocus={ this.handleSearchFieldFocusEvent }
+            cbKeyboardEvent={ this.handleKeyboardEvents }
+          />
         </div>
-        <div className="form-row">
-          <SuggestionList showSuggestions={ this.state.showSuggestions } trainNumbers={ this.props.trainNumbers }
-            selectedTrainNumber={ this.state.newTrainNumber } cbHandleClickEvents={ this.handleClickEvents } />
+        <div className={ styles.formRow }>
+          <SuggestionList
+            showSuggestions={ this.state.showSuggestions }
+            trainNumbers={ this.props.trainNumbers }
+            selectedTrainNumber={ this.state.newTrainNumber }
+            cbHandleClickEvents={ this.handleClickEvents }
+          />
         </div>
       </form>
     )

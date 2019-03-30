@@ -2,6 +2,12 @@
   margin-bottom: 1rem;
 }
 
+.title {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  color: white;
+}
+
 .form-row {
   position: relative;
   display: flex;

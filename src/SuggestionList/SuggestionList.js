@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SuggestionList.css';
+import styles from './SuggestionList.module.css';
 
 class SuggestionList extends Component {
   constructor(props) {
@@ -15,11 +15,19 @@ class SuggestionList extends Component {
   }
 
   render() {
+    const { showSuggestions, selectedTrainNumber } = this.props;
+
     return (
-      <ul className={ `suggestions ${ (this.props.showSuggestions) ? 'suggestions--are-visible' : '' }` }>
+      <ul
+        className={ `${styles.suggestions} ${ (showSuggestions) ? styles['suggestions--are-visible'] : '' }`}
+      >
         { this.props.trainNumbers.map((trainNumber, index) =>
-          <li className={`suggestion ${ this.props.selectedTrainNumber === trainNumber ? 'suggestion--is-active' : '' }`}
-            key={ index } data-train-number={ trainNumber } onClick={ this.handleClickEvent }>
+          <li
+            className={ `${styles.suggestion} ${ selectedTrainNumber === trainNumber ? styles['suggestion--is-active'] : '' }` }
+            key={ index }
+            data-train-number={ trainNumber }
+            onClick={ this.handleClickEvent }
+          >
             { trainNumber }
           </li>)
         }
