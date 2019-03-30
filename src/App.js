@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './App.css';
+import styles from './App.module.css';
 import SearchForm from './SearchForm/SearchForm';
 import TrainDetails from './TrainDetails/TrainDetails';
 
@@ -32,7 +32,7 @@ class App extends Component {
           return entry1.trainNumber - entry2.trainNumber;
         })
 
-        return sortedEntries
+        return sortedEntries.slice(0, 5);
       })
       .then((entries) => {
         // extract only number for now
@@ -92,18 +92,24 @@ class App extends Component {
   }
 
   render() {
+    const { trainNumbers, isLoading, activeTrain, selectedTrainNumber } = this.state;
+
     return (
-      <div className="App">
-        <header className="header">
-          <h1 className="title">
+      <div className={ styles.app }>
+        <header className={ styles.header }>
+          <h1 className={ styles.title }>
             ICE-4 Suche
           </h1>
         </header>
-        <main className="main">
-          <SearchForm trainNumbers={ this.state.trainNumbers } showLoader={ this.state.isLoading }
-            activeTrain={ this.state.activeTrain } cbTrainChangeEvent={ this.handleTrainChangeEvent } />
-          { !this.state.isLoading && this.state.selectedTrainNumber !== '' ?
-            <TrainDetails selectedTrainNumber={ this.state.selectedTrainNumber } /> : ''
+        <main className={ styles.main }>
+          <SearchForm
+            trainNumbers={ trainNumbers }
+            showLoader={ isLoading }
+            activeTrain={ activeTrain }
+            cbTrainChangeEvent={ this.handleTrainChangeEvent }
+          />
+          { !isLoading && selectedTrainNumber !== '' ?
+            <TrainDetails selectedTrainNumber={ selectedTrainNumber } /> : ''
           }
         </main>
       </div>

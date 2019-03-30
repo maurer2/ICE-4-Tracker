@@ -7,7 +7,7 @@ class TrainDetails extends Component {
 
     return (
       <div className={ styles['train-details'] }>
-        <h2 className={ styles.subtitle }>
+        <h2 className={ styles.title }>
           Informationen zu { trainName }
         </h2>
         <dl className={ styles.information }>

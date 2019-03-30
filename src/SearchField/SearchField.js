@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
+
 import styles from './SearchField.module.css';
 
 class SearchField extends Component {
@@ -49,14 +51,16 @@ class SearchField extends Component {
   }
 
   render() {
+    const { value } = this.state;
+
     return (
       <input
-        className={ `${styles.input} ${styles.search}` }
+        className={ classNames(styles.input, styles.search) }
         type="search"
         name="search"
         placeholder="Zugnummer eingeben"
         autoComplete="off"
-        value={ this.state.value }
+        value={ value }
         onChange={ this.handleChangeEvent }
         onFocus={ this.handleFocusEvent }
         onBlur={ this.handleBlurEvent }

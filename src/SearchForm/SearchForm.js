@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import styles from './SearchForm.module.css';
 import { ReactComponent as Loader } from './loader.svg';
 
@@ -85,6 +86,9 @@ class SearchForm extends Component {
   }
 
   render() {
+    const { showSuggestions, newTrainNumber } = this.state;
+    const { trainNumbers } = this.props;
+
     return (
       <form
         action="/"
@@ -92,13 +96,13 @@ class SearchForm extends Component {
         method="post"
         autoComplete="off"
         noValidate="novalidate"
-        onSubmit={ (e) => e.preventDefault() }
+        onSubmit={ (event) => event.preventDefault() }
       >
         <h2 className={ styles.title }>
           Nummern&shy;suche
         </h2>
         <div className={ styles['form-row'] }>
-          { this.props.showLoader && <Loader className="loader"></Loader> }
+          { this.props.showLoader && <Loader className={ styles.loader }></Loader> }
           <SearchField
             cbFieldFocus={ this.handleSearchFieldFocusEvent }
             cbKeyboardEvent={ this.handleKeyboardEvents }
@@ -106,9 +110,9 @@ class SearchForm extends Component {
         </div>
         <div className={ styles.formRow }>
           <SuggestionList
-            showSuggestions={ this.state.showSuggestions }
-            trainNumbers={ this.props.trainNumbers }
-            selectedTrainNumber={ this.state.newTrainNumber }
+            showSuggestions={ showSuggestions }
+            trainNumbers={ trainNumbers }
+            selectedTrainNumber={ newTrainNumber }
             cbHandleClickEvents={ this.handleClickEvents }
           />
         </div>

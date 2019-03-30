@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
+
 import styles from './SuggestionList.module.css';
 
 class SuggestionList extends Component {
@@ -19,11 +21,21 @@ class SuggestionList extends Component {
 
     return (
       <ul
-        className={ `${styles.suggestions} ${ (showSuggestions) ? styles['suggestions--are-visible'] : '' }`}
+        className={ classNames(
+          styles.suggestions,
+          styles.search, {
+            [styles['suggestions--are-visible']]: showSuggestions,
+          }
+        )}
       >
         { this.props.trainNumbers.map((trainNumber, index) =>
           <li
-            className={ `${styles.suggestion} ${ selectedTrainNumber === trainNumber ? styles['suggestion--is-active'] : '' }` }
+            className={ classNames(
+              styles.suggestion,
+              {
+                [styles['suggestion--is-active']]: selectedTrainNumber === trainNumber
+              },
+            )}
             key={ index }
             data-train-number={ trainNumber }
             onClick={ this.handleClickEvent }
