@@ -6,7 +6,7 @@ import config from './src/Scraper/scraper.conf';
 const scraperFernbahn = new Scraper(config);
 
 const saveMockData = content => new Promise((resolve, reject) => {
-  const newFile = fs.createWriteStream(`${__dirname}/mockData/trains.json`);
+  const newFile = fs.createWriteStream(`${__dirname}/src/mockData/trains.json`);
 
   newFile.on('error', () => {
     reject();

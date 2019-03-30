@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import fs from 'fs-extra';
 
 import './App.css';
 import SearchForm from './SearchForm/SearchForm';
@@ -7,6 +6,8 @@ import TrainDetails from './TrainDetails/TrainDetails';
 
 import Scraper from './Scraper/scraper';
 import config from './Scraper/scraper.conf';
+
+import trainData from './mockData/trains.json';
 
 class App extends Component {
   constructor(props) {
@@ -23,14 +24,9 @@ class App extends Component {
   }
 
   fetchMockData() {
-    const file = fs.readFile(`${__dirname}/mockData/trains.json`);
+    const mockedTrainData = new Promise((resolve) => resolve(trainData));
 
-    file
-      .then((entries) => {
-        const parsedJSON = JSON.parse(entries);
-
-        return parsedJSON;
-      })
+    return mockedTrainData
       .then((entries) => {
         const sortedEntries = [...entries].sort((entry1, entry2) => {
           return entry1.trainNumber - entry2.trainNumber;
@@ -71,9 +67,10 @@ class App extends Component {
       isLoading: true,
     });
 
-    const trainData = (process.env.NODE_ENV === 'dev') ? this.fetchMockData() : this.fetchData();
+    const fetchedTrainData = (process.env.NODE_ENV === 'development')?
+      this.fetchMockData() : this.fetchData();
 
-    trainData
+    fetchedTrainData
       .then((trains) => {
         this.setState({
           trainNumbers: trains,
