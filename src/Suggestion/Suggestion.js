@@ -5,16 +5,19 @@ import classNames from 'classnames';
 import styles from './Suggestion.module.css';
 
 const Suggestion = (props) => {
-  const { selectedTrainNumber, trainNumber } = props;
+  const { isActive, trainNumber, cbHandleClickEvent } = props;
+
+  const handleClickEvent = () => cbHandleClickEvent(trainNumber);
 
   return (
     <li
       className={ classNames(
         styles.suggestion,
         {
-          [styles['suggestion--is-active']]: selectedTrainNumber === trainNumber
+          [styles['suggestion--is-active']]: isActive
         },
       )}
+      onClick={handleClickEvent}
     >
       { trainNumber }
     </li>
@@ -24,6 +27,7 @@ const Suggestion = (props) => {
 export default Suggestion;
 
 Suggestion.propTypes = {
-  selectedTrainNumber: PropTypes.string,
-  trainNumber: PropTypes.string,
+  isActive: PropTypes.bool.isRequired,
+  trainNumber: PropTypes.string.isRequired,
+  cbHandleClickEvent: PropTypes.func.isRequired,
 };

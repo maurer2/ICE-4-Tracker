@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 import styles from './SearchForm.module.css';
-import { ReactComponent as Loader } from './loader.svg';
 
 import SearchField from '../SearchField/SearchField';
 import SuggestionList from '../SuggestionList/SuggestionList';
+import Spinner from '../Spinner/Spinner';
 
 class SearchForm extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class SearchForm extends Component {
 
     this.handleSearchFieldFocusEvent = this.handleSearchFieldFocusEvent.bind(this);
     this.handleKeyboardEvents = this.handleKeyboardEvents.bind(this);
-    this.handleClickEvents = this.handleClickEvents.bind(this);
+    this.handleClickEvent = this.handleClickEvent.bind(this);
   }
 
   handleSearchFieldFocusEvent(searchFieldHasFocus) {
@@ -45,7 +45,7 @@ class SearchForm extends Component {
     this.updateSelectedTrainNumber(key === 'ArrowDown');
   }
 
-  handleClickEvents(trainNumber) {
+  handleClickEvent(trainNumber) {
     this.setState({
       newTrainNumber: trainNumber
     }, () => {
@@ -87,7 +87,7 @@ class SearchForm extends Component {
 
   render() {
     const { showSuggestions, newTrainNumber } = this.state;
-    const { trainNumbers } = this.props;
+    const { showLoader, trainNumbers } = this.props;
 
     return (
       <form
@@ -102,18 +102,22 @@ class SearchForm extends Component {
           Nummern&shy;suche
         </h2>
         <div className={ styles['form-row'] }>
-          { this.props.showLoader && <Loader className={ styles.loader }></Loader> }
-          <SearchField
-            cbFieldFocus={ this.handleSearchFieldFocusEvent }
-            cbKeyboardEvent={ this.handleKeyboardEvents }
-          />
+          { showLoader ? (
+            <Spinner className={ styles.spinner } />
+            ) : (
+              <SearchField
+                cbFieldFocus={ this.handleSearchFieldFocusEvent }
+                cbKeyboardEvent={ this.handleKeyboardEvents }
+              />
+            )
+          }
         </div>
         <div className={ styles.formRow }>
           <SuggestionList
             showSuggestions={ showSuggestions }
             trainNumbers={ trainNumbers }
             selectedTrainNumber={ newTrainNumber }
-            cbHandleClickEvents={ this.handleClickEvents }
+            cbHandleClickEvent={ this.handleClickEvent }
           />
         </div>
       </form>

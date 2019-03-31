@@ -1,17 +1,3 @@
-.suggestions {
-	display: none;
-	margin: 0;
-	padding: 0;
-	background: #fff;
-	list-style: none;
-  text-align: left;
-  flex-grow: 1;
-}
-
-.suggestions--are-visible {
-	display: block;
-}
-
 .suggestion {
   padding: 0.5rem;
 }

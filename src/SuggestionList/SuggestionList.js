@@ -1,46 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import Suggestion from '../Suggestion/Suggestion';
 
 import styles from './SuggestionList.module.css';
 
-class SuggestionList extends Component {
-  constructor(props) {
-    super(props);
+const SuggestionList = (props) => {
+  const { showSuggestions, trainNumbers, selectedTrainNumber, cbHandleClickEvent } = props;
 
-    this.handleClickEvent = this.handleClickEvent.bind(this);
-  }
-
-  handleClickEvent(event) {
-    const { trainNumber } = event.target.dataset;
-
-    this.props.cbHandleClickEvents(trainNumber);
-  }
-
-  render() {
-    const { showSuggestions, selectedTrainNumber } = this.props;
-
-    return (
-      <ul
-        className={ classNames(
-          styles.suggestions,
-          styles.search, {
-            [styles['suggestions--are-visible']]: showSuggestions,
-          }
-        )}
-      >
-        { this.props.trainNumbers.map((trainNumber, index) =>
-          <Suggestion
-            selectedTrainNumber= { selectedTrainNumber }
-            trainNumber= { trainNumber }
-            onClick= { this.handleClickEvent }
-            key= { index }
-          />
-        )}
-      </ul>
-    )
-  }
+  return (
+    <ul
+      className={ classNames(
+        styles.suggestions,
+        styles.search, {
+          [styles['suggestions--are-visible']]: showSuggestions,
+        }
+      )}
+    >
+      {trainNumbers.map((trainNumber, index) => (
+        <Suggestion
+          isActive={selectedTrainNumber === trainNumber}
+          trainNumber={trainNumber}
+          cbHandleClickEvent={cbHandleClickEvent}
+          key={index}
+        />
+      ))}
+    </ul>
+  )
 }
 
 export default SuggestionList;
+
+SuggestionList.propTypes = {
+  showSuggestions: PropTypes.bool.isRequired,
+  trainNumbers: PropTypes.array.isRequired,
+  selectedTrainNumber: PropTypes.string.isRequired,
+  cbHandleClickEvent: PropTypes.func.isRequired,
+};
