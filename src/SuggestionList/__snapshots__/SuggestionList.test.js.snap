@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuggestionList SuggestionList should match snapshot 1`] = `
+<ul
+  className="suggestions search suggestions--are-visible"
+>
+  <Suggestion
+    cbHandleClickEvent={[MockFunction]}
+    isActive={true}
+    key="0"
+    trainNumber="500"
+  />
+  <Suggestion
+    cbHandleClickEvent={[MockFunction]}
+    isActive={false}
+    key="1"
+    trainNumber="600"
+  />
+  <Suggestion
+    cbHandleClickEvent={[MockFunction]}
+    isActive={false}
+    key="2"
+    trainNumber="700"
+  />
+</ul>
+`;

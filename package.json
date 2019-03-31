@@ -13,6 +13,7 @@
     "start:dev": "HTTPS=false BROWSER=false NODE_ENV=dev react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:update": "react-scripts test -u",
     "eject": "react-scripts eject",
     "lint": "node_modules/.bin/eslint ./src/**/*.js"
   },
@@ -20,6 +21,9 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "dotenv": "^6.1.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "5.12.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-react-app": "^3.0.5",
@@ -38,6 +42,8 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.8",
+    "react-test-renderer": "^16.8.6",
+    "typescript": "^3.4.1",
     "util": "^0.11.1"
   },
   "eslintConfig": {

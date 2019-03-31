@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm SearchForm should match snapshot 1`] = `
+<form
+  action="/"
+  autoComplete="off"
+  className="form"
+  method="post"
+  noValidate="novalidate"
+  onSubmit={[Function]}
+>
+  <h2
+    className="title"
+  >
+    Nummern­suche
+  </h2>
+  <div
+    className="form-row"
+  >
+    <SearchField
+      cbFieldFocus={[Function]}
+      cbKeyboardEvent={[Function]}
+    />
+  </div>
+  <div
+    className="formRow"
+  >
+    <SuggestionList
+      cbHandleClickEvent={[Function]}
+      selectedTrainNumber=""
+      showSuggestions={false}
+      trainNumbers={
+        Array [
+          "500",
+          "555",
+        ]
+      }
+    />
+  </div>
+</form>
+`;

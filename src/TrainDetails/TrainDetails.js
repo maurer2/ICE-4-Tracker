@@ -3,7 +3,8 @@ import styles from './TrainDetails.module.css';
 
 class TrainDetails extends Component {
   render(){
-    const trainName = `ICE-${ this.props.selectedTrainNumber }`;
+    const { selectedTrainNumber } = this.props;
+    const trainName = `ICE-${ selectedTrainNumber }`;
 
     return (
       <div className={ styles['train-details'] }>

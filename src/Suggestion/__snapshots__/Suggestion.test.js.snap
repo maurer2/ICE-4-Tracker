@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Suggestion Suggestion should match snapshot 1`] = `
+<li
+  className="suggestion suggestion--is-active"
+  onClick={[Function]}
+>
+  500
+</li>
+`;

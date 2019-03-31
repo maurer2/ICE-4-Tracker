@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrainDetails TrainDetails should match snapshot 1`] = `
+<div
+  className="train-details"
+>
+  <h2
+    className="title"
+  >
+    Informationen zu 
+    ICE-500
+  </h2>
+  <dl
+    className="information"
+  >
+    <dt
+      className="number"
+    >
+      Nummer:
+    </dt>
+    <dd
+      className="value"
+    >
+      ICE-500
+    </dd>
+    <span
+      className="breaker"
+    />
+    <dt
+      className="origin"
+    >
+      Start:
+    </dt>
+    <dd
+      className="value"
+    >
+      Stadt 1
+    </dd>
+    <span
+      className="breaker"
+    />
+    <dt
+      className="destination"
+    >
+      Ziel:
+    </dt>
+    <dd
+      className="value"
+    >
+      Stadt 2
+    </dd>
+  </dl>
+</div>
+`;
