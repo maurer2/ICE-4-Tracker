@@ -21,7 +21,13 @@ class SearchForm extends Component {
   }
 
   handleSearchFieldFocusEvent(searchFieldHasFocus) {
-    this.setState({showSuggestions: searchFieldHasFocus})
+    if (searchFieldHasFocus) {
+      this.setState({showSuggestions: true});
+      return;
+    }
+    if (!(this.state.showSuggestions)) {
+      this.setState({showSuggestions: false});
+    }
   }
 
   handleKeyboardEvents(key) {
@@ -38,6 +44,7 @@ class SearchForm extends Component {
       //this.searchField.blur();
       // workaround
       document.activeElement.blur();
+      this.setState({showSuggestions: false});
 
       return;
     }
