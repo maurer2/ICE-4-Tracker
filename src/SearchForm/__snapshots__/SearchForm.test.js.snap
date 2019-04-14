@@ -26,6 +26,7 @@ exports[`SearchForm SearchForm should match snapshot 1`] = `
       cbKeyboardEvent={[Function]}
       id="search-field"
       name="search-field"
+      value="500"
     />
   </div>
   <div
