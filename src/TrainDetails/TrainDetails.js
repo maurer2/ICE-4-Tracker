@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import styles from './TrainDetails.module.css';
 
 class TrainDetails extends Component {
-  render(){
+  render() {
     const { selectedTrainNumber } = this.props;
-    const trainName = `ICE-${ selectedTrainNumber }`;
+    const trainName = `ICE-${selectedTrainNumber}`;
 
     return (
       <div className={ styles['train-details'] }>
@@ -26,8 +28,12 @@ class TrainDetails extends Component {
           <dd className={ styles.value }>Stadt 2</dd>
         </dl>
       </div>
-    )
+    );
   }
 }
 
 export default TrainDetails;
+
+TrainDetails.propTypes = {
+  selectedTrainNumber: PropTypes.string.isRequired,
+};

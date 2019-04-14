@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './SearchForm.module.css';
 
@@ -22,11 +23,11 @@ class SearchForm extends Component {
 
   handleSearchFieldFocusEvent(searchFieldHasFocus) {
     if (searchFieldHasFocus) {
-      this.setState({showSuggestions: true});
+      this.setState({ showSuggestions: true });
       return;
     }
     if (!(this.state.showSuggestions)) {
-      this.setState({showSuggestions: false});
+      this.setState({ showSuggestions: false });
     }
   }
 
@@ -41,17 +42,18 @@ class SearchForm extends Component {
       const { newTrainNumber } = this.state;
 
       this.props.cbUpdateActiveTrain(newTrainNumber);
-      //this.searchField.blur();
+      // this.searchField.blur();
       // workaround
       document.activeElement.blur();
-      this.setState({showSuggestions: false});
+
+      this.setState({ showSuggestions: false });
 
       return;
     }
 
     if (key === 'ArrowDown') {
       this.updateSelectedTrainNumber(true);
-      
+
       return;
     }
 
@@ -109,7 +111,7 @@ class SearchForm extends Component {
         method="post"
         autoComplete="off"
         noValidate="novalidate"
-        onSubmit={ (event) => event.preventDefault() }
+        onSubmit={ event => event.preventDefault() }
       >
         <h2 className={ styles.title }>
           <label htmlFor="search-field">
@@ -128,7 +130,7 @@ class SearchForm extends Component {
             value={ activeTrain }
             id="search-field"
             name="search-field"
-            ref={ c => this.searchField = c }
+            ref={ (callback) => { this.searchField = callback; } }
           />
         </div>
         <div className={ styles.formRow }>
@@ -140,8 +142,15 @@ class SearchForm extends Component {
           />
         </div>
       </form>
-    )
+    );
   }
 }
 
 export default SearchForm;
+
+SearchForm.propTypes = {
+  cbUpdateActiveTrain: PropTypes.func.isRequired,
+  trainNumbers: PropTypes.array,
+  showLoader: PropTypes.bool,
+  activeTrain: PropTypes.string,
+};

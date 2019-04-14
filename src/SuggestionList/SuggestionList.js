@@ -7,7 +7,9 @@ import styles from './SuggestionList.module.css';
 import Suggestion from '../Suggestion/Suggestion';
 
 const SuggestionList = (props) => {
-  const {showSuggestions, trainNumbers, selectedTrainNumber, cbHandleClickEvent} = props;
+  const {
+    showSuggestions, trainNumbers, selectedTrainNumber, cbHandleClickEvent,
+  } = props;
 
   return (
     <ul
@@ -15,7 +17,7 @@ const SuggestionList = (props) => {
         styles.suggestions,
         styles.search, {
           [styles['suggestions--are-visible']]: showSuggestions,
-        }
+        },
       )}
     >
       {trainNumbers.map((trainNumber, index) => (
@@ -27,8 +29,8 @@ const SuggestionList = (props) => {
         />
       ))}
     </ul>
-  )
-}
+  );
+};
 
 export default SuggestionList;
 

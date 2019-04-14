@@ -14,7 +14,7 @@ const Suggestion = (props) => {
       className={ classNames(
         styles.suggestion,
         {
-          [styles['suggestion--is-active']]: isActive
+          [styles['suggestion--is-active']]: isActive,
         },
       )}
       onClick={handleClickEvent}

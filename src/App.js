@@ -41,7 +41,7 @@ class App extends Component {
       });
   }
 
-  fetchData(){
+  fetchData() {
     const scraperFernbahn = new Scraper(config);
 
     return scraperFernbahn
@@ -66,8 +66,9 @@ class App extends Component {
       isLoading: true,
     });
 
-    const fetchedTrainData = (process.env.NODE_ENV === 'development')?
-      this.fetchMockData() : this.fetchData();
+    const fetchedTrainData = (process.env.NODE_ENV === 'development')
+      ? this.fetchMockData()
+      : this.fetchData();
 
     fetchedTrainData
       .then((trains) => {
@@ -75,12 +76,12 @@ class App extends Component {
           trainNumbers: trains,
           showSuggestions: true,
           isLoading: false,
-        })
+        });
       })
       .catch(() => {
         this.setState({
           trainNumbers: [],
-        })
+        });
       });
   }
 
@@ -105,8 +106,9 @@ class App extends Component {
             activeTrain={ activeTrain }
             cbUpdateActiveTrain={ this.updateActiveTrain }
           />
-          { !isLoading && activeTrain !== '' ?
-            <TrainDetails selectedTrainNumber={ activeTrain } /> : ''
+          { !isLoading && activeTrain !== ''
+            ? <TrainDetails selectedTrainNumber={ activeTrain } />
+            : ''
           }
         </main>
       </div>

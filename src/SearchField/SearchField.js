@@ -41,7 +41,7 @@ class SearchField extends Component {
 
   handleKeyUpEvent(event) {
     const { cbKeyboardEvent } = this.props;
-    const key = event.key;
+    const { key } = event;
 
     if (key === undefined) {
       return;
@@ -67,7 +67,7 @@ class SearchField extends Component {
         onBlur={ this.handleBlurEvent }
         onKeyUp={ this.handleKeyUpEvent }
       />
-    )
+    );
   }
 }
 
@@ -76,5 +76,5 @@ export default SearchField;
 SearchField.propTypes = {
   value: PropTypes.string,
   cbKeyboardEvent: PropTypes.func,
-  cbFieldFocus: PropTypes.func,  
+  cbFieldFocus: PropTypes.func,
 };
