@@ -102,15 +102,15 @@ class SearchForm extends Component {
           Nummern&shy;suche
         </h2>
         <div className={ styles['form-row'] }>
-          { showLoader ? (
-            <Spinner className={ styles.spinner } />
-            ) : (
-              <SearchField
-                cbFieldFocus={ this.handleSearchFieldFocusEvent }
-                cbKeyboardEvent={ this.handleKeyboardEvents }
-              />
-            )
-          }
+          { showLoader && (
+            <div className={ styles['spinner-overlay'] } >
+              <Spinner />
+            </div>
+          )}
+          <SearchField
+            cbFieldFocus={ this.handleSearchFieldFocusEvent }
+            cbKeyboardEvent={ this.handleKeyboardEvents }
+          />
         </div>
         <div className={ styles.formRow }>
           <SuggestionList

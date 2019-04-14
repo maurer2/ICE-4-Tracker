@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { ReactComponent as SpinnerSVG } from './Spinner.svg';
+import styles from './Spinner.module.css';
 
 const Spinner = () => {
   return (
-    <SpinnerSVG />
+    <SpinnerSVG className={ styles.spinner } />
   )
 }
 
