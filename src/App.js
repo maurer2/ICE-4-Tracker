@@ -15,12 +15,11 @@ class App extends Component {
 
     this.state = {
       trainNumbers: [],
-      activeTrain: '',
       isLoading: false,
-      selectedTrainNumber: '',
+      activeTrain: '',
     };
 
-    this.handleTrainChangeEvent = this.handleTrainChangeEvent.bind(this);
+    this.updateActiveTrain = this.updateActiveTrain.bind(this);
   }
 
   fetchMockData() {
@@ -85,14 +84,12 @@ class App extends Component {
       });
   }
 
-  handleTrainChangeEvent(newTrainNumber) {
-    this.setState({
-      selectedTrainNumber: newTrainNumber,
-    });
+  updateActiveTrain(newTrainNumber) {
+    this.setState({ activeTrain: newTrainNumber });
   }
 
   render() {
-    const { trainNumbers, isLoading, activeTrain, selectedTrainNumber } = this.state;
+    const { trainNumbers, isLoading, activeTrain } = this.state;
 
     return (
       <div className={ styles.app }>
@@ -106,10 +103,10 @@ class App extends Component {
             trainNumbers={ trainNumbers }
             showLoader={ isLoading }
             activeTrain={ activeTrain }
-            cbTrainChangeEvent={ this.handleTrainChangeEvent }
+            cbUpdateActiveTrain={ this.updateActiveTrain }
           />
-          { !isLoading && selectedTrainNumber !== '' ?
-            <TrainDetails selectedTrainNumber={ selectedTrainNumber } /> : ''
+          { !isLoading && activeTrain !== '' ?
+            <TrainDetails selectedTrainNumber={ activeTrain } /> : ''
           }
         </main>
       </div>

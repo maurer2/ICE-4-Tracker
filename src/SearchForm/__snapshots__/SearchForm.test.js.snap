@@ -12,7 +12,11 @@ exports[`SearchForm SearchForm should match snapshot 1`] = `
   <h2
     className="title"
   >
-    Nummern­suche
+    <label
+      htmlFor="search-field"
+    >
+      Nummern­suche
+    </label>
   </h2>
   <div
     className="form-row"
@@ -20,6 +24,8 @@ exports[`SearchForm SearchForm should match snapshot 1`] = `
     <SearchField
       cbFieldFocus={[Function]}
       cbKeyboardEvent={[Function]}
+      id="search-field"
+      name="search-field"
     />
   </div>
   <div

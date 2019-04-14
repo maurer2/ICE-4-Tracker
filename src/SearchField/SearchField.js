@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import styles from './SearchField.module.css';
 
@@ -8,7 +9,6 @@ class SearchField extends Component {
     super(props);
 
     this.state = {
-      value: '',
       hasFocus: false,
     };
 
@@ -19,48 +19,49 @@ class SearchField extends Component {
   }
 
   handleChangeEvent(event) {
-    this.setState({
-      value: event.target.value,
+    // this.setState({ value: event.target.value });
+    console.log(event.target.value);
+  }
+
+  handleFocusEvent() {
+    const { cbFieldFocus } = this.props;
+
+    this.setState({ hasFocus: true }, () => {
+      cbFieldFocus(true);
     });
   }
 
-  handleFocusEvent(event) {
-    this.setState({
-      hasFocus: true,
-    }, () => {
-      this.props.cbFieldFocus(this.state.hasFocus);
-    })
-  }
+  handleBlurEvent() {
+    const { cbFieldFocus } = this.props;
 
-  handleBlurEvent(event) {
-    this.setState({
-      hasFocus: false,
-    }, () => {
-      this.props.cbFieldFocus(this.state.hasFocus);
-    })
+    this.setState({ hasFocus: false }, () => {
+      cbFieldFocus(false);
+    });
   }
 
   handleKeyUpEvent(event) {
+    const { cbKeyboardEvent } = this.props;
     const key = event.key;
 
     if (key === undefined) {
       return;
     }
 
-    this.props.cbKeyboardEvent(key);
+    cbKeyboardEvent(key);
   }
 
   render() {
-    const { value } = this.state;
+    const { value } = this.props;
 
     return (
       <input
-        className={ classNames(styles.input, styles.search) }
+        className={ classNames(styles.field, styles.search) }
+        value={ value }
         type="search"
-        name="search"
+        name="search-field"
+        id="search-field"
         placeholder="Zugnummer eingeben"
         autoComplete="off"
-        value={ value }
         onChange={ this.handleChangeEvent }
         onFocus={ this.handleFocusEvent }
         onBlur={ this.handleBlurEvent }
@@ -71,3 +72,9 @@ class SearchField extends Component {
 }
 
 export default SearchField;
+
+SearchField.propTypes = {
+  value: PropTypes.string,
+  cbKeyboardEvent: PropTypes.func,
+  cbFieldFocus: PropTypes.func,  
+};

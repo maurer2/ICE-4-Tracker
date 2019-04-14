@@ -3,14 +3,14 @@
 exports[`SearchField SearchField should match snapshot 1`] = `
 <input
   autoComplete="off"
-  className="input search"
-  name="search"
+  className="field search"
+  id="search-field"
+  name="search-field"
   onBlur={[Function]}
   onChange={[Function]}
   onFocus={[Function]}
   onKeyUp={[Function]}
   placeholder="Zugnummer eingeben"
   type="search"
-  value=""
 />
 `;

@@ -10,8 +10,10 @@
 
 .title {
   margin: 0 0 1rem 0;
-  font-size: 2rem;
+  font-size: 1.25rem;
   color: white;
+  text-align: left;
+  font-weight: normal;
 }
 
 .number,

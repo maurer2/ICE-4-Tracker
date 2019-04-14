@@ -2,12 +2,12 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import Suggestion from '../Suggestion/Suggestion';
-
 import styles from './SuggestionList.module.css';
 
+import Suggestion from '../Suggestion/Suggestion';
+
 const SuggestionList = (props) => {
-  const { showSuggestions, trainNumbers, selectedTrainNumber, cbHandleClickEvent } = props;
+  const {showSuggestions, trainNumbers, selectedTrainNumber, cbHandleClickEvent} = props;
 
   return (
     <ul

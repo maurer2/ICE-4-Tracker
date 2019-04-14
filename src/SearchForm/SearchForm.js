@@ -12,7 +12,6 @@ class SearchForm extends Component {
 
     this.state = {
       showSuggestions: false,
-      inputValue: this.props.activeTrain,
       newTrainNumber: '',
     };
 
@@ -22,9 +21,7 @@ class SearchForm extends Component {
   }
 
   handleSearchFieldFocusEvent(searchFieldHasFocus) {
-    this.setState({
-      showSuggestions: true,
-    })
+    this.setState({showSuggestions: searchFieldHasFocus})
   }
 
   handleKeyboardEvents(key) {
@@ -35,21 +32,31 @@ class SearchForm extends Component {
     }
 
     if (key === 'Enter') {
-      const newTrain = this.state.newTrainNumber;
+      const { newTrainNumber } = this.state;
 
-      this.props.cbTrainChangeEvent(newTrain);
+      this.props.cbUpdateActiveTrain(newTrainNumber);
+      //this.searchField.blur();
+      // workaround
+      document.activeElement.blur();
 
       return;
     }
 
-    this.updateSelectedTrainNumber(key === 'ArrowDown');
+    if (key === 'ArrowDown') {
+      this.updateSelectedTrainNumber(true);
+      
+      return;
+    }
+
+    this.updateSelectedTrainNumber(false);
   }
 
   handleClickEvent(trainNumber) {
     this.setState({
-      newTrainNumber: trainNumber
+      newTrainNumber: trainNumber,
+      showSuggestions: false,
     }, () => {
-      this.props.cbTrainChangeEvent(trainNumber);
+      this.props.cbUpdateActiveTrain(trainNumber);
     });
   }
 
@@ -58,36 +65,35 @@ class SearchForm extends Component {
       return;
     }
 
-    const selectedTrainNumber = this.state.newTrainNumber;
-    const firstTrainNumber = this.props.trainNumbers[0];
-    const lastTrainNumber = this.props.trainNumbers[this.props.trainNumbers.length - 1];
+    const { newTrainNumber } = this.state;
+    const { trainNumbers } = this.props;
 
+    const firstTrainNumber = trainNumbers[0];
+    const lastTrainNumber = trainNumbers[trainNumbers.length - 1];
     if (goDown) {
-      if (selectedTrainNumber === lastTrainNumber) {
+      // last entry
+      if (newTrainNumber === lastTrainNumber) {
         return;
       }
 
-      const nextIndex = this.props.trainNumbers.indexOf(selectedTrainNumber) + 1;
+      const nextIndex = trainNumbers.indexOf(newTrainNumber) + 1;
 
-      this.setState({
-        newTrainNumber: this.props.trainNumbers[nextIndex]
-      })
+      this.setState({ newTrainNumber: trainNumbers[nextIndex] });
     } else {
-      if (selectedTrainNumber === firstTrainNumber) {
+      // first entry
+      if (newTrainNumber === firstTrainNumber) {
         return;
       }
 
-      const prevIndex = this.props.trainNumbers.indexOf(selectedTrainNumber) - 1;
+      const prevIndex = trainNumbers.indexOf(newTrainNumber) - 1;
 
-      this.setState({
-        newTrainNumber: this.props.trainNumbers[prevIndex]
-      })
+      this.setState({ newTrainNumber: trainNumbers[prevIndex] });
     }
   }
 
   render() {
     const { showSuggestions, newTrainNumber } = this.state;
-    const { showLoader, trainNumbers } = this.props;
+    const { showLoader, trainNumbers, activeTrain } = this.props;
 
     return (
       <form
@@ -99,17 +105,23 @@ class SearchForm extends Component {
         onSubmit={ (event) => event.preventDefault() }
       >
         <h2 className={ styles.title }>
-          Nummern&shy;suche
+          <label htmlFor="search-field">
+            Nummern&shy;suche
+          </label>
         </h2>
         <div className={ styles['form-row'] }>
           { showLoader && (
-            <div className={ styles['spinner-overlay'] } >
+            <div className={ styles['spinner-overlay'] }>
               <Spinner />
             </div>
           )}
           <SearchField
             cbFieldFocus={ this.handleSearchFieldFocusEvent }
             cbKeyboardEvent={ this.handleKeyboardEvents }
+            value={ activeTrain }
+            id="search-field"
+            name="search-field"
+            ref={ c => this.searchField = c }
           />
         </div>
         <div className={ styles.formRow }>
