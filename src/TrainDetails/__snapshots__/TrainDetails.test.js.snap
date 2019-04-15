@@ -8,7 +8,9 @@ exports[`TrainDetails TrainDetails should match snapshot 1`] = `
     className="title"
   >
     Informationen zu 
-    ICE-500
+    <strong>
+      ICE-500
+    </strong>
   </h2>
   <dl
     className="information"
@@ -33,9 +35,7 @@ exports[`TrainDetails TrainDetails should match snapshot 1`] = `
     </dt>
     <dd
       className="value"
-    >
-      Stadt 1
-    </dd>
+    />
     <span
       className="breaker"
     />

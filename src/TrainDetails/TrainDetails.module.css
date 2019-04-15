@@ -20,6 +20,9 @@
 .origin,
 .destination {
   margin-left: 0;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  min-width: 30%;
 }
 
 .value {

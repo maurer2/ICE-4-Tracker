@@ -14,6 +14,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      trains: [],
       trainNumbers: [],
       isLoading: false,
       activeTrain: '',
@@ -35,7 +36,8 @@ class App extends Component {
       })
       .then((entries) => {
         // extract only number for now
-        const trainNumbers = entries.map((entry) => entry.trainNumber);
+        //const trainNumbers = entries.map((entry) => entry.trainNumber);
+        const trainNumbers = entries;
 
         return(trainNumbers);
       });
@@ -55,7 +57,9 @@ class App extends Component {
       })
       .then((entries) => {
         // extract only number for now
-        const trainNumbers = entries.map((entry) => entry.trainNumber);
+        // const trainNumbers = entries.map((entry) => entry.trainNumber);
+
+        const trainNumbers = entries;
 
         return(trainNumbers);
       });
@@ -72,8 +76,12 @@ class App extends Component {
 
     fetchedTrainData
       .then((trains) => {
+        // extract trainNumbers
+        const trainNumbers = trains.map((entry) => entry.trainNumber);
+
         this.setState({
-          trainNumbers: trains,
+          trains,
+          trainNumbers,
           showSuggestions: true,
           isLoading: false,
         });
@@ -89,8 +97,15 @@ class App extends Component {
     this.setState({ activeTrain: newTrainNumber });
   }
 
+  getTrainDetailsByNumber(number) {
+    const { trains } = this.state;
+
+    return trains.find((element) => element.trainNumber === number);
+  }
+
   render() {
     const { trainNumbers, isLoading, activeTrain } = this.state;
+    const trainDetails = this.getTrainDetailsByNumber(activeTrain);
 
     return (
       <div className={ styles.app }>
@@ -106,10 +121,9 @@ class App extends Component {
             activeTrain={ activeTrain }
             cbUpdateActiveTrain={ this.updateActiveTrain }
           />
-          { !isLoading && activeTrain !== ''
-            ? <TrainDetails selectedTrainNumber={ activeTrain } />
-            : ''
-          }
+          { !isLoading && activeTrain !== '' && (
+            <TrainDetails selectedTrainNumber={ activeTrain } trainDetails= { trainDetails } />
+          )}
         </main>
       </div>
     );
