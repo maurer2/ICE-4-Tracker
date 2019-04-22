@@ -1,6 +1,10 @@
 module.exports = {
-  "extends": "airbnb-base",
-  "parser": "babel-eslint",
+  extends: [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  parser: "babel-eslint",
   "env": {
     "jest": true,
     "browser": true,
@@ -10,16 +14,18 @@ module.exports = {
     "react/jsx-uses-vars": "error",
     "react/jsx-uses-react": "error",
   },
-  "parserOptions": {
+  parserOptions: {
     "ecmaFeatures": {
       "jsx": true,
     },
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
-  "plugins": [
+  plugins: [
     "react"
   ],
+  settings: {
+    "react": {
+      "pragma": "React",
+      "version": "^16.6.3",
+    },
+  },
 };

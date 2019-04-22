@@ -1,10 +1,7 @@
 import React from 'react';
-import TrainDetails from './TrainDetails';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import toJson from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 
-Enzyme.configure({ adapter: new Adapter() });
+import TrainDetails from './TrainDetails';
 
 describe('TrainDetails', () => {
   const dummyTrainDetails = {
@@ -21,7 +18,7 @@ describe('TrainDetails', () => {
   );
 
   test('TrainDetails should match snapshot', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
 });

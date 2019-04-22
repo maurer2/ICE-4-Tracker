@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App SuggestionList should match snapshot 1`] = `
+<div
+  className="app"
+>
+  <header
+    className="header"
+  >
+    <h1
+      className="title"
+    >
+      ICE-4 Suche
+    </h1>
+  </header>
+  <main
+    className="main"
+  >
+    <SearchForm
+      activeTrain=""
+      cbUpdateActiveTrain={[Function]}
+      showLoader={true}
+      trainNumbers={Array []}
+    />
+  </main>
+</div>
+`;

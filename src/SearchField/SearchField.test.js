@@ -1,10 +1,7 @@
 import React from 'react';
-import SearchField from './SearchField';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import toJson from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 
-Enzyme.configure({ adapter: new Adapter() });
+import SearchField from './SearchField';
 
 describe('SearchField', () => {
   const mockedHandleFieldFocus = jest.fn();
@@ -19,8 +16,8 @@ describe('SearchField', () => {
     />
   );
 
-  it('SearchField should match snapshot', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
+  test('SearchField should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 
 });

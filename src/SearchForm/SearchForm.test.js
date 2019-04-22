@@ -1,10 +1,7 @@
 import React from 'react';
-import SearchForm from './SearchForm';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import toJson from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 
-Enzyme.configure({ adapter: new Adapter() });
+import SearchForm from './SearchForm';
 
 describe('SearchForm', () => {
   const mockUpdateTrain = jest.fn();
@@ -19,6 +16,6 @@ describe('SearchForm', () => {
   );
 
   test('SearchForm should match snapshot', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });

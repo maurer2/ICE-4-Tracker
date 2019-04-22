@@ -1,10 +1,7 @@
 import React from 'react';
-import Suggestion from './Suggestion';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import toJson from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 
-Enzyme.configure({ adapter: new Adapter() });
+import Suggestion from './Suggestion';
 
 describe('Suggestion', () => {
   const mockedHandleClick = jest.fn();
@@ -17,8 +14,8 @@ describe('Suggestion', () => {
     />
   );
 
-  it('Suggestion should match snapshot', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
+  test('Suggestion should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 
 });

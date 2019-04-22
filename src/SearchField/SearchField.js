@@ -18,9 +18,9 @@ class SearchField extends Component {
     this.handleKeyUpEvent = this.handleKeyUpEvent.bind(this);
   }
 
-  handleChangeEvent(event) {
+  handleChangeEvent() {
     // this.setState({ value: event.target.value });
-    console.log(event.target.value);
+    // console.log(event.target.value);
   }
 
   handleFocusEvent() {
